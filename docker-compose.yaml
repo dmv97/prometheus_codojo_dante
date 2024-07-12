@@ -7,7 +7,7 @@ services:
     ports:
      - '3000:3000'
     volumes:
-     - /home/antonio/grafana-docker-compose/volumes:/var/lib/grafana
+     - ./data/volumes:/var/lib/grafana
     user: "472:472"
     depends_on:
       - prometheus
@@ -19,8 +19,8 @@ services:
     ports:
       - "9090:9090"
     volumes:
-      - /home/antonio/grafana-docker-compose/volumes/prometheus-data:/prometheus/data
-      - /home/antonio/grafana-docker-compose/volumes/prometheus-config/prometheus.yml:/etc/prometheus/prometheus.yml  # Mount local Prometheus config
+      - ./data/volumes/prometheus-data:/prometheus/data
+      - ./data/volumes/prometheus-config/prometheus.yml:/etc/prometheus/prometheus.yml  # Mount local Prometheus config
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
     depends_on:
@@ -33,4 +33,4 @@ services:
     ports:
       - "9116:9116"
     volumes:
-      - /home/antonio/grafana-docker-compose/volumes/snmp-exporter-config/snmp.yml:/etc/snmp_exporter/snmp.yml
+      - ./data/volumes/snmp-exporter-config/snmp.yml:/etc/snmp_exporter/snmp.yml

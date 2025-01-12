@@ -3,5 +3,5 @@ targets:
     module: if_mib
     version: 2c
     auth:
-      community: antoniosnmp  # Replace with your community string
+      community: dantesnmp  # Replace with your community string
 
